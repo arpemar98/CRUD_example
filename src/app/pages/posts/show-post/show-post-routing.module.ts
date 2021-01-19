@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: ShowPostPage
+  },
+  {
+    path: 'show-autor',
+    loadChildren: () => import('./show-autor/show-autor.module').then( m => m.ShowAutorPageModule)
   }
 ];
 

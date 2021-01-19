@@ -1,10 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Update Comment</ion-title>
+    
+    <ion-title>
+      <ion-icon name="create"></ion-icon>
+      Update Comment
+    </ion-title>
 
     <ion-button slot="end" (click)="closeModal()" fill="outline" color="medium">
       <ion-icon slot="icon-only"name="close-outline"></ion-icon>
     </ion-button>
+
   </ion-toolbar>
   
 </ion-header>
@@ -13,27 +18,32 @@
 
   <br>
 
-  <ion-card style="width: 80%; margin: auto;" *ngIf="this.name && this.email && this.body">
+  <ion-card style="width: 80%; margin: auto;" >
 
     <ion-item>
       <ion-label><strong>Name</strong></ion-label>
-      <ion-input placeholder="name" autocomplete="off" [(ngModel)]="this.name"></ion-input>
+      <ion-input placeholder="name" autocomplete="off" [(ngModel)]="this.comment.name"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label><strong>Email</strong></ion-label>
-      <ion-input placeholder="name@mail.com" autocomplete="off" [(ngModel)]="this.email"></ion-input>
+      <ion-input placeholder="name@mail.com" autocomplete="off" [(ngModel)]="this.comment.email"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label><strong>Body</strong></ion-label>
-      <ion-textarea placeholder="Enter more information here..." rows="6" [(ngModel)]="this.body"></ion-textarea>
+      <ion-textarea placeholder="Enter more information here..." rows="6" [(ngModel)]="this.comment.body"></ion-textarea>
     </ion-item>
-
-    <ion-button expand="full" (click)="updateComment()" 
-    [disabled]="(this.name && this.email && this.body)? 'false':'true'"
-    [color]="(this.name && this.email && this.body)? 'primary' : 'medium'">Update</ion-button>
 
   </ion-card>
 
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-button expand="full" (click)="updateComment()" 
+    [disabled]="(this.comment.name && this.comment.email && this.comment.body)? 'false':'true'"
+    [color]="(this.comment.name && this.comment.email && this.comment.body)? 'primary' : 'medium'">Update</ion-button>    
+  </ion-toolbar>
+</ion-footer>
+

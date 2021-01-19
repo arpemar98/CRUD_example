@@ -12,7 +12,7 @@
         Show Posts
       </ion-item>
 
-      <ion-item button >
+      <ion-item button (click)="showCredits()">
         <ion-icon name="alert-circle-outline" slot="start"></ion-icon>
         Credits
       </ion-item>
@@ -30,7 +30,10 @@
       </ion-buttons>
       
       <ion-title>
-        CRUD: Perez Martinez Josue Aristeo
+        <ion-text color="primary">
+          CRUD:
+        </ion-text>
+        Posts
       </ion-title>
     </ion-toolbar>
   </ion-header>

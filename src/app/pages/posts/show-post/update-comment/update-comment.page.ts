@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {ModalController,AlertController} from "@ionic/angular";
+import {ModalController, NavParams } from "@ionic/angular";
+import { Comment } from '../../../../classes/comment';
 
 @Component({
   selector: 'app-update-comment',
@@ -9,14 +10,12 @@ import {ModalController,AlertController} from "@ionic/angular";
 })
 export class UpdateCommentPage implements OnInit {
 
-  @Input() postId: string;
-  @Input() id: string;
-  @Input() name: string;
-  @Input() email: string;
-  @Input() body: string;
 
+  @Input() comment: Comment;
 
-  constructor(private modalCtrl:ModalController) { }
+  constructor(private modalCtrl:ModalController) { 
+    this.comment = new Comment();
+  }
 
   ngOnInit() {
   }
@@ -27,13 +26,13 @@ export class UpdateCommentPage implements OnInit {
   }
 
   updateComment(){
-    fetch('https://jsonplaceholder.typicode.com/comments/' + this.postId, {
+    fetch('https://jsonplaceholder.typicode.com/comments/' + this.comment.postId, {
       method: 'PUT',
       body: JSON.stringify({
-        id: this.id,
-        name: this.name,
-        email: this.email,
-        body: this.body,
+        id: this.comment.id,
+        name: this.comment.name,
+        email: this.comment.email,
+        body: this.comment.body,
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -42,7 +41,8 @@ export class UpdateCommentPage implements OnInit {
     .then((response) => response.json()).then(
       (json) => {
         console.log(json);
-        this.closeModal(); 
+        
+        this.modalCtrl.dismiss(this.comment); // RETURN NEW DATA
       }
     );
   }

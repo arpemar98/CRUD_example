@@ -1,0 +1,163 @@
+<ion-header *ngIf="this.author">
+  <ion-toolbar>
+   
+      <ion-title>  
+        <ion-text color="primary">
+        <strong>User: </strong>
+        </ion-text>
+        {{author.username}}
+        
+      </ion-title>
+
+      <ion-button slot="end" (click)="closeModal()" fill="outline" color="medium">
+        <ion-icon slot="icon-only"name="close-outline"></ion-icon>
+      </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="this.author">
+
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+
+        <ion-row>
+          <ion-col>
+            <ion-text color="primary">
+              <strong>Name: </strong>
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            {{author.name}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-text color="primary"><strong>Email: </strong></ion-text>
+          </ion-col>
+          <ion-col>
+            {{author.email}}
+          </ion-col>
+        </ion-row>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-text ><strong>Address</strong></ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        
+        <ion-row>
+          <ion-col>
+            <ion-text color="secondary">- Street:</ion-text>
+          </ion-col>
+          <ion-col>
+            {{author.address.street}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-text color="secondary">- Suite:</ion-text>
+          </ion-col>
+          <ion-col>
+            {{author.address.suite}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-text color="secondary">- City:</ion-text>
+          </ion-col>
+          <ion-col>
+            {{author.address.city}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-text color="secondary">- Zipcode:</ion-text>
+          </ion-col>
+          <ion-col>
+            {{author.address.zipcode}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-text color="tertiary">- Latitud:</ion-text>
+          </ion-col>
+          <ion-col>
+            {{author.address.geo.lat}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-text color="tertiary">- Longitud:</ion-text>
+          </ion-col>
+          <ion-col>
+            {{author.address.geo.lng}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-text color="primary"><strong>Phone: </strong></ion-text>
+          </ion-col>
+          <ion-col>
+            {{author.phone}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-text color="primary"><strong>Website: </strong></ion-text>
+          </ion-col>
+          <ion-col>
+            {{author.website}}
+          </ion-col>
+        </ion-row>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-text><strong>Company</strong></ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-row>
+          <ion-col>
+            <ion-text color="secondary"><strong>- Name: </strong></ion-text>
+          </ion-col>
+          <ion-col>
+            {{author.company.name}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-text color="secondary"><strong>- CatchPhrase: </strong></ion-text>
+          </ion-col>
+          <ion-col>
+            {{author.company.catchPhrase}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-text color="secondary"><strong>- BS: </strong></ion-text>
+          </ion-col>
+          <ion-col>
+            {{author.company.bs}}
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

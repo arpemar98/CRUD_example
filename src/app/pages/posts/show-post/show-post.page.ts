@@ -9,6 +9,7 @@ import { AlertController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 
 import { UpdateCommentPage } from './update-comment/update-comment.page';
+import { ShowAutorPage } from './show-autor/show-autor.page';
 
 @Component({
   selector: 'app-show-post',
@@ -47,7 +48,8 @@ export class ShowPostPage implements OnInit {
       (response) => response.json()
     ).then(
       (json) => {
-        //console.log(json);
+        
+        console.log("Getting ",json);
         this.postInfo = json;
 
         fetch('https://jsonplaceholder.typicode.com/posts/' + this.postId + '/comments').then(
@@ -110,7 +112,7 @@ export class ShowPostPage implements OnInit {
     ).then(
       (jsonComment) => {
         
-        console.log(jsonComment);
+        console.log("Commenting:..",jsonComment);
 
         this.commentsList.push(jsonComment);
 
@@ -121,19 +123,36 @@ export class ShowPostPage implements OnInit {
     );
   }
 
-  async updateComment(id:string, name:string, email:string, body:string){
+  async updateComment(index:string, id:string, name:string, email:string, body:string){
+
+    let currentComment:Comment = new Comment();
+
+    currentComment.id = id;
+    currentComment.postId = this.postId;
+    currentComment.name = name;
+    currentComment.email = email;
+    currentComment.body = body;
     
     const modal = await this.modalController.create({
       component: UpdateCommentPage,
       componentProps: {
-        'postId': this.postId,
-        'id': id,
-        'name': name,
-        'email': email,
-        'body': body
+        'comment': currentComment
       },
       swipeToClose: true
     });
+
+    modal.onDidDismiss().then(
+      (updated) => {
+
+        const newData:Comment = updated.data;
+
+        if(newData){
+          console.log("Updated...", newData);
+
+          this.commentsList[index] = newData;
+        }
+      }
+    );
 
     return await modal.present();
   }
@@ -166,13 +185,25 @@ export class ShowPostPage implements OnInit {
       method: 'DELETE',
     }).then(
       result =>{
-        console.log("Deleting...", result);
+        console.log("Deleting:..", result);
 
         let index = this.commentsList.findIndex(i => i.id == idComment);
 
         this.commentsList.splice(index, 1);
       }
     );
+  }
+
+  async showAutor(){
+    const modal = await this.modalController.create({
+      component: ShowAutorPage,
+      componentProps: {
+        'author': this.user
+      },
+      swipeToClose: true
+    });
+
+    return await modal.present();
   }
 
 

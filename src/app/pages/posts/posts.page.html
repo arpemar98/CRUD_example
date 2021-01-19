@@ -1,14 +1,14 @@
 <ion-content >   
 
-  <ion-list style="background-color: transparent">
+  <ion-list style="background-color: transparent; width: 90%; margin:auto">
 
     <ion-list-header>
-        POSTS:
+        <strong>POSTS:</strong>
     </ion-list-header>
 
     <ion-item 
+      class="item-for-post"
       *ngFor= "let post of this.posts" 
-      style="--background: rgba(0,0,0,0);--border-color: rgba(0,0,0,0);"
       [routerLink]="['./', post.id]">
 
       <ion-thumbnail slot="start">
@@ -21,7 +21,8 @@
           {{post.body}}
         </p>
       </ion-label>
-    
+
+      <ion-icon name="eye" slot="end"></ion-icon>
           
     </ion-item>
   </ion-list>

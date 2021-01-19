@@ -10,6 +10,7 @@ import { ShowPostPageRoutingModule } from './show-post-routing.module';
 import { ShowPostPage } from './show-post.page';
 
 import { UpdateCommentPageModule } from './update-comment/update-comment.module';
+import { ShowAutorPageModule } from './show-autor/show-autor.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { UpdateCommentPageModule } from './update-comment/update-comment.module'
     IonicModule,
     ShowPostPageRoutingModule,
     RouterModule,
-    UpdateCommentPageModule
+    UpdateCommentPageModule,
+    ShowAutorPageModule
   ],
   declarations: [ShowPostPage],
   exports: [ShowPostPage]

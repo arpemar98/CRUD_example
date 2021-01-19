@@ -2,7 +2,7 @@
 
   <ion-card *ngIf="postInfo">
     <ion-card-header>
-      <ion-card-title>{{postInfo.title}}</ion-card-title>
+      <ion-card-title><strong>Post:</strong> {{postInfo.title}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       {{postInfo.body}}
@@ -11,11 +11,15 @@
     <ion-card-content *ngIf="this.user">
       <ion-item>
         <ion-label>
-          <p><strong>Name: </strong> {{this.user.name}}</p>
-          <p><strong>Username: </strong> {{this.user.username}}</p>
-          <p><strong>Email: </strong> {{this.user.email}}</p>
-          <p><strong>Phone: </strong> {{this.user.phone}}</p>
-          <p><strong>Website: </strong> {{this.user.website}}</p>
+          <strong>
+            Author:
+          </strong>
+          <ion-chip (click)="showAutor()">
+            <ion-avatar>
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjYzVkYmZmIiBkPSJNMCAwaDUxMnY1MTJIMHoiLz48cGF0aCBkPSJNMjU2IDMwNGM2MS42IDAgMTEyLTUwLjQgMTEyLTExMlMzMTcuNiA4MCAyNTYgODBzLTExMiA1MC40LTExMiAxMTIgNTAuNCAxMTIgMTEyIDExMnptMCA0MGMtNzQuMiAwLTIyNCAzNy44LTIyNCAxMTJ2NTZoNDQ4di01NmMwLTc0LjItMTQ5LjgtMTEyLTIyNC0xMTJ6IiBmaWxsPSIjODJhZWZmIi8+PC9zdmc+">
+            </ion-avatar>
+            <ion-label>{{this.user.username}}</ion-label>
+          </ion-chip>
         </ion-label>
       </ion-item>
       
@@ -30,7 +34,7 @@
 
     <ion-list-header>Comments</ion-list-header>
 
-    <ion-item *ngFor= "let commentItem of this.commentsList" >
+    <ion-item *ngFor= "let commentItem of this.commentsList; let thisIndex = index">
 
       <ion-avatar slot="start">
         <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
@@ -42,7 +46,7 @@
         <p class="ion-text-justify ion-text-wrap">{{commentItem.body}}</p>
       </ion-label>
 
-      <ion-button slot="end" color="primary" (click)="updateComment(commentItem.id, commentItem.name, commentItem.email, commentItem.body)">
+      <ion-button slot="end" color="primary" (click)="updateComment(thisIndex, commentItem.id, commentItem.name, commentItem.email, commentItem.body)">
         <ion-icon slot="icon-only"name="create-outline"></ion-icon>
       </ion-button>
 

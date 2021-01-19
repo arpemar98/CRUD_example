@@ -29,7 +29,7 @@ export class PostsPage implements OnInit {
       (response) => response.json()
     ).then(
       (json) => {
-        console.log(json);
+        console.log("Getting Posts:..",json);
         this.posts = json;
         loading.dismiss();
       }
