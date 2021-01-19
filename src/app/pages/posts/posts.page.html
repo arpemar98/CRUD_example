@@ -1,0 +1,29 @@
+<ion-content >   
+
+  <ion-list style="background-color: transparent">
+
+    <ion-list-header>
+        POSTS:
+    </ion-list-header>
+
+    <ion-item 
+      *ngFor= "let post of this.posts" 
+      style="--background: rgba(0,0,0,0);--border-color: rgba(0,0,0,0);"
+      [routerLink]="['./', post.id]">
+
+      <ion-thumbnail slot="start">
+        <img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/512x512/pencil.png">
+      </ion-thumbnail>
+
+      <ion-label> 
+        <strong>#{{post.id}}: {{post.title}}</strong>
+        <p>
+          {{post.body}}
+        </p>
+      </ion-label>
+    
+          
+    </ion-item>
+  </ion-list>
+
+</ion-content>

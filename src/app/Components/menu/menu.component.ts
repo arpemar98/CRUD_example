@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
+  currentPopover:any = null;
+
   constructor() { }
 
   ngOnInit() {}
 
+  
 }

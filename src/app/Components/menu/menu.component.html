@@ -1,3 +1,42 @@
-<p>
-  menu works!
-</p>
+<ion-menu side="start" content-id="main-content" menu-id="leftMenu">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Main Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-item button routerLink="/">
+        <ion-icon name="clipboard-outline" slot="start"></ion-icon>
+        Show Posts
+      </ion-item>
+
+      <ion-item button >
+        <ion-icon name="alert-circle-outline" slot="start"></ion-icon>
+        Credits
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div id="main-content" class="ion-page">
+
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+
+      <ion-buttons slot="start">
+        <ion-menu-button menu="leftMenu"></ion-menu-button>
+      </ion-buttons>
+      
+      <ion-title>
+        CRUD: Perez Martinez Josue Aristeo
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ng-content></ng-content>
+  </ion-content>
+
+</div>

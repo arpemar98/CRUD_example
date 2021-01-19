@@ -1,0 +1,95 @@
+<ion-content>
+
+  <ion-card *ngIf="postInfo">
+    <ion-card-header>
+      <ion-card-title>{{postInfo.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{postInfo.body}}
+    </ion-card-content>
+
+    <ion-card-content *ngIf="this.user">
+      <ion-item>
+        <ion-label>
+          <p><strong>Name: </strong> {{this.user.name}}</p>
+          <p><strong>Username: </strong> {{this.user.username}}</p>
+          <p><strong>Email: </strong> {{this.user.email}}</p>
+          <p><strong>Phone: </strong> {{this.user.phone}}</p>
+          <p><strong>Website: </strong> {{this.user.website}}</p>
+        </ion-label>
+      </ion-item>
+      
+      <ion-text>
+        <strong>Important:</strong> resource will not be really updated on the server but it will be faked as if.
+      </ion-text>
+      
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list style="width: 80%; margin: auto;" *ngIf="this.commentsList && this.commentsList.length > 0; else noComments">
+
+    <ion-list-header>Comments</ion-list-header>
+
+    <ion-item *ngFor= "let commentItem of this.commentsList" >
+
+      <ion-avatar slot="start">
+        <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
+      </ion-avatar>
+
+      <ion-label>
+        <h3>{{commentItem.name}}</h3>
+        <p><strong>{{commentItem.email}}</strong></p>
+        <p class="ion-text-justify ion-text-wrap">{{commentItem.body}}</p>
+      </ion-label>
+
+      <ion-button slot="end" color="primary" (click)="updateComment(commentItem.id, commentItem.name, commentItem.email, commentItem.body)">
+        <ion-icon slot="icon-only"name="create-outline"></ion-icon>
+      </ion-button>
+
+      <ion-button slot="end" color="danger" (click)="deleteCommentAlert(commentItem.id)">
+        <ion-icon slot="icon-only"name="trash-outline"></ion-icon>
+      </ion-button>
+      
+    </ion-item>
+  </ion-list>
+
+  <ng-template #noComments>
+    <ion-card style="width: 80%; margin: auto;" >
+      <ion-card-header class="ion-text-center">
+        <ion-card-title>
+          No comments
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </ng-template>
+
+  <ion-card style="width: 80%; margin: 10px auto 20px auto;">
+
+    <ion-card-header>
+      <ion-card-title>
+        Write a comment
+      </ion-card-title>  
+    </ion-card-header>
+
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input placeholder="name" autocomplete="off" [(ngModel)]="this.newComment.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input placeholder="name@mail.com" autocomplete="off" [(ngModel)]="this.newComment.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Body</ion-label>
+      <ion-textarea placeholder="Enter more information here..." rows="6" [(ngModel)]="this.newComment.body"></ion-textarea>
+    </ion-item>
+
+    <ion-button expand="full" (click)="createComment()" 
+    [disabled]="(this.newComment.name && this.newComment.email && this.newComment.body)? 'false':'true'"
+    [color]="(this.newComment.name && this.newComment.email && this.newComment.body)? 'primary' : 'medium'">Comment</ion-button>
+
+  </ion-card>
+
+</ion-content>
