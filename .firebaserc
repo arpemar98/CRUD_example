@@ -1,6 +1,5 @@
 {
   "projects": {
-    "default": "postcrud-aa32d",
-    "postsCrud": "postscrud"
+    "default": "postscrud"
   }
 }
