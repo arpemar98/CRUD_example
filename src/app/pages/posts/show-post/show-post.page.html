@@ -34,27 +34,37 @@
 
     <ion-list-header>Comments</ion-list-header>
 
-    <ion-item *ngFor= "let commentItem of this.commentsList; let thisIndex = index">
+    <div *ngFor= "let commentItem of this.commentsList; let thisIndex = index">
 
-      <ion-avatar slot="start">
-        <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
-      </ion-avatar>
+      <ion-item lines="none">
 
-      <ion-label>
-        <h3>{{commentItem.name}}</h3>
-        <p><strong>{{commentItem.email}}</strong></p>
-        <p class="ion-text-justify ion-text-wrap">{{commentItem.body}}</p>
-      </ion-label>
+        <ion-avatar slot="start">
+          <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
+        </ion-avatar>
 
-      <ion-button slot="end" color="primary" (click)="updateComment(thisIndex, commentItem.id, commentItem.name, commentItem.email, commentItem.body)">
-        <ion-icon slot="icon-only"name="create-outline"></ion-icon>
-      </ion-button>
+        <ion-label>
+          <h3 class="ion-text-wrap">{{commentItem.name}}</h3>
+          <p class="ion-text-wrap"><strong>{{commentItem.email}}</strong></p>
+          <p class="ion-text-justify ion-text-wrap">{{commentItem.body}}</p>
+        </ion-label>
 
-      <ion-button slot="end" color="danger" (click)="deleteCommentAlert(commentItem.id)">
-        <ion-icon slot="icon-only"name="trash-outline"></ion-icon>
-      </ion-button>
-      
-    </ion-item>
+      </ion-item>
+
+      <ion-item>
+        <ion-buttons slot="end">
+          <ion-button color="primary" (click)="updateComment(thisIndex, commentItem.id, commentItem.name, commentItem.email, commentItem.body)">
+            <ion-icon name="create-outline"></ion-icon>
+            Edit
+          </ion-button>
+
+          <ion-button color="danger" (click)="deleteCommentAlert(commentItem.id)">
+            <ion-icon name="trash-outline"></ion-icon>
+            Delete
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+
+    </div>
   </ion-list>
 
   <ng-template #noComments>

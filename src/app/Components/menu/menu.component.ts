@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit {
   async showCredits() {
 
     const alert = await this.alertCtrl.create({
-      header: 'Credits:',
+      header: 'Made by:',
       subHeader: 'Josue Aristeo Perez Martinez',
       message: 'ArPeMar98@hotmail.com',
       buttons: ['OK']

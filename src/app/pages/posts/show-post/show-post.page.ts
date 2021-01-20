@@ -1,5 +1,6 @@
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Platform } from '@ionic/angular';
 
 import { Comment } from '../../../classes/comment';
 import { Post } from '../../../classes/post';
@@ -25,7 +26,7 @@ export class ShowPostPage implements OnInit {
   public commentsList:Comment[];
   public user:any;
 
-  constructor(private _activatedRoute:ActivatedRoute,public loadingController: LoadingController, public alertCtrl:AlertController,public modalController: ModalController) { 
+  constructor(private _activatedRoute:ActivatedRoute,public loadingController: LoadingController, public alertCtrl:AlertController,public modalController: ModalController,public platform: Platform) { 
     this.newComment = new Comment();
     this.postInfo = new Post();
   }
