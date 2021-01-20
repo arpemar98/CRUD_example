@@ -10,12 +10,23 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { MyComponentModule } from './Components/my-component.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
+//import { firebaseConfig } from '../../environments/firebaseConfig';
+//import { AngularFireModule } from '@angular/fire';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,MyComponentModule, RouterModule],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule,
+    MyComponentModule, 
+    //AngularFireModule.initializeApp(firebaseConfig) //solo esta Línea
+    RouterModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+  ],
   providers: [
     StatusBar,
     SplashScreen,

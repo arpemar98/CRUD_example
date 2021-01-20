@@ -1,0 +1,30 @@
+POSTS CRUD
+
+- Perez Martinez Josue Aristeo
+
+Hay 2 formas para la utilziacion de esta aplicacion:
+
+*****************************************************************************************
+* 1: Acceder a la aplicacion remota montada en un servidor en:				*
+*											*
+* http:
+*****************************************************************************************
+
+*****************************************************************************************
+* 2: Instalar localmente:								*
+*											*
+*- 1.- Instalar nodejs: 								*
+*	https://nodejs.org/es/download/							*
+*											*
+*- 2.- Instalar ionic: 									*
+*	$ npm install -g @ionic/cli							*
+*											*
+*- 3.- Descargar el repositorio actual: 						*
+*	https://github.com/arpemar98/CRUD_example					*
+*											*
+*- 4.- Acceder a la carpeta con la terminal y ejecutar los paquetes de node:		*
+*	$ npm install									*
+*											*
+*- 5.- levantar el servidor: 								*
+*	$ ionic serve									*
+*****************************************************************************************
