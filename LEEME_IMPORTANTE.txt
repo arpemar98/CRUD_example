@@ -8,6 +8,8 @@ Hay 2 formas para la utilziacion de esta aplicacion:
 * 1: Acceder a la aplicacion remota montada en un servidor (no instalar nada) en:	*
 *											*
 * https://postscrud.web.app/home/posts							*
+*											*
+*	#Navegador Chrome								*
 *****************************************************************************************
 
 *****************************************************************************************
