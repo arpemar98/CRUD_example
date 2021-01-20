@@ -18,12 +18,12 @@ import { ShowAutorPage } from './show-autor/show-autor.page';
 })
 export class ShowPostPage implements OnInit {
 
-  private newComment:Comment;
+  public newComment:Comment;
 
-  private postId:string;
-  private postInfo:Post;
-  private commentsList:Comment[];
-  private user:any;
+  public postId:string;
+  public postInfo:Post;
+  public commentsList:Comment[];
+  public user:any;
 
   constructor(private _activatedRoute:ActivatedRoute,public loadingController: LoadingController, public alertCtrl:AlertController,public modalController: ModalController) { 
     this.newComment = new Comment();

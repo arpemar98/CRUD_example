@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
+import { Post } from '../../classes/post';
 
 @Component({
   selector: 'app-posts',
@@ -8,7 +9,7 @@ import { LoadingController } from '@ionic/angular';
 })
 export class PostsPage implements OnInit {
 
-  private posts:any;
+  public posts:Post;
   
   constructor(public loadingController: LoadingController) { }
 
