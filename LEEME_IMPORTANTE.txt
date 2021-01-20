@@ -9,7 +9,7 @@ Hay 2 formas para la utilziacion de esta aplicacion:
 *											*
 * https://postscrud.web.app/home/posts							*
 *											*
-*	#Navegador Chrome										*
+*	#Navegador Chrome								*
 *****************************************************************************************
 
 *****************************************************************************************
